@@ -2,16 +2,8 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     searchedContact: ''
-  //   };
-  //   this.filterContacts = this.filterContacts.bind(this);
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
 
-  handleChange(event) {
+  filterContacts(event) {
     const filter = event.target.value.toUpperCase();
     const table = document.getElementById("table");
     const tr = table.getElementsByTagName("tr");
@@ -33,7 +25,7 @@ class SearchBar extends Component {
       <div>
         <FormGroup>
           <FormControl
-            onChange={this.handleChange}
+            onChange={this.filterContacts}
             type="text"
             placeholder="Buscar contacto..."
           />

@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Table, Row, Col } from 'react-bootstrap';
 
 class ContactBox extends Component {
+
+  deleteContact(event, name) {
+    event.preventDefault()
+    console.log('tiiiiiiiii')
+  }
+
   render() {
-    console.log(this.props.contacts);
     return (
       <Table striped bordered condensed hover responsive id="table">
         <thead>
@@ -19,6 +24,7 @@ class ContactBox extends Component {
                   <td>
                     <img src={contact.pic} />
                     <span>{contact.name}</span>
+                    <a href="" onClick={this.deleteContact} >Eliminar</a>
                   </td>
                   <td>
                     <p>{contact.description}</p>
