@@ -6,7 +6,7 @@ class SearchBar extends Component {
     return (
       <div >
           <FormGroup>
-            <FormControl type="text" placeholder="Search" />
+            <FormControl type="text" placeholder="Buscar contacto..." />
           </FormGroup>{' '}
       </div>
     );

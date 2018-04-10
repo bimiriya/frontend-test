@@ -1,3 +1,15 @@
 body {
   background-color: #e4e4e4;
 }
+
+#table {
+  background-color: white;
+}
+
+img {
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}

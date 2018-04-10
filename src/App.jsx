@@ -2,9 +2,41 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import SearchBar from './components/SearchBar';
 import NewContact from './components/NewContact';
-// import ContactBox from './components/ContactBox';
+import ContactBox from './components/ContactBox';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: '',
+      id: '',
+      name: ''
+    };
+  }
+
+  componentWillMount() {
+    this.getContacts()
+  }
+  
+  getContacts() {
+    fetch('http://localhost:3000/api/users')
+    .then(response => response.json())
+    .then(data =>
+      data.map(contact => ({
+        id: contact.id,
+        name: contact.name,
+        description: contact.description,
+        pic: contact.photo
+      }))
+    )
+    .then(contacts =>
+      this.setState({
+        contacts
+      })
+    )
+    .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <Grid>
@@ -22,8 +54,8 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
-            {/* <ContactBox /> */}
+          <Col xs={12} sm={12} md={12} lg={12}>
+            <ContactBox contacts={this.state.contacts} />
           </Col>
         </Row>
       </Grid>
